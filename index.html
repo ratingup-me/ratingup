@@ -103,7 +103,7 @@
     .s5{ animation: none; opacity: 1; }
   }
 
-  .signup{ display:flex; gap:10px; max-width: 440px; margin-bottom: 12px; }
+  .signup{ display:flex; gap:10px; max-width: 440px; margin-bottom: 12px; scroll-margin-top: 100px; }
   .signup input{
     flex:1; background: var(--surface); border: 1px solid var(--line-strong);
     color: var(--ink); padding: 14px 18px; border-radius: 999px; font-size: 0.95rem;
@@ -179,27 +179,42 @@
   .section-sub{ color: var(--ink-soft); max-width: 540px; font-size: 1rem; margin-bottom: 52px; }
 
   /* ---------- PROCESS ---------- */
-  .process{ display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .process{ display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
   .process-card{
-    background: var(--surface); border-radius: 20px; padding: 28px 24px;
-    border: 1px solid var(--line);
+    background: var(--surface); border-radius: 20px; padding: 30px 24px 26px;
+    border: 2px solid var(--accent-color, var(--teal));
+    box-shadow: 0 4px 16px rgba(27,46,53,0.06);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .process-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(27,46,53,0.10);
+  }
+  .process-card .step-tag{
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--accent-color, var(--teal)); text-transform: uppercase;
+    margin-bottom: 12px; display: block;
   }
   .process-card .step-icon{
-    width: 42px; height: 42px; border-radius: 12px; background: var(--teal-dim);
-    color: var(--teal); display:flex; align-items:center; justify-content:center;
-    font-family:'Baloo 2',sans-serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 16px;
+    width: 46px; height: 46px; border-radius: 13px; background: var(--accent-dim, var(--teal-dim));
+    color: var(--accent-color, var(--teal)); display:flex; align-items:center; justify-content:center;
+    margin-bottom: 16px;
   }
-  .process-card h3{ font-family:'Baloo 2',sans-serif; font-weight: 700; font-size: 1.08rem; margin-bottom: 8px; }
+  .process-card h3{ font-family:'Baloo 2',sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 8px; }
   .process-card p{ color: var(--ink-soft); font-size: 0.89rem; }
+  .c-teal{ --accent-color: var(--teal); --accent-dim: var(--teal-dim); }
+  .c-coral{ --accent-color: var(--coral); --accent-dim: var(--coral-dim); }
+  .c-mustard{ --accent-color: #b9791f; --accent-dim: #fbeed4; }
 
   /* ---------- FEATURE GRID ---------- */
   .feature-grid{ display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
   .feature-card{
-    background: var(--surface); border-radius: 20px; padding: 26px 24px; border: 1px solid var(--line);
+    background: var(--surface); border-radius: 20px; padding: 26px 24px;
+    border: 2px solid var(--accent-color, var(--coral));
   }
   .feature-card .ic{
-    width: 40px; height: 40px; border-radius: 11px; background: var(--coral-dim);
-    color: var(--coral); display:flex; align-items:center; justify-content:center; margin-bottom: 16px;
+    width: 40px; height: 40px; border-radius: 11px; background: var(--accent-dim, var(--coral-dim));
+    color: var(--accent-color, var(--coral)); display:flex; align-items:center; justify-content:center; margin-bottom: 16px;
   }
   .feature-card h3{ font-family:'Baloo 2',sans-serif; font-weight: 700; font-size: 1.02rem; margin-bottom: 8px; }
   .feature-card p{ color: var(--ink-soft); font-size: 0.88rem; }
@@ -321,7 +336,7 @@
   </section>
 
   <div class="stats-strip">
-    <span class="item"><b>90%</b> revisa Google antes de elegir</span>
+    <span class="item"><b>90%</b> de los clientes revisa Google antes de elegir</span>
     <span class="item"><b>60 días</b> promedio para subir de estrella</span>
     <span class="item"><b>$9.900</b> ARS/mes · sin contrato</span>
   </div>
@@ -333,20 +348,29 @@
       <p class="section-sub reveal">No hay panel que aprender. Si usa WhatsApp, ya sabe usar Repunte.</p>
 
       <div class="process reveal">
-        <div class="process-card">
-          <div class="step-icon">1</div>
-          <h3>Le damos un QR</h3>
-          <p>Lo pega en el mostrador, la mesa o el ticket. Lleva directo a la pantalla de reseña en Google, sin que el cliente tenga que buscar nada.</p>
-        </div>
-        <div class="process-card">
-          <div class="step-icon">2</div>
+        <div class="process-card c-teal">
+          <span class="step-tag">Paso 01</span>
+          <div class="step-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
           <h3>Le avisamos al instante</h3>
           <p>Cuando llega una reseña nueva, le mandamos un WhatsApp con el texto y una respuesta ya redactada por IA.</p>
         </div>
-        <div class="process-card">
-          <div class="step-icon">3</div>
+        <div class="process-card c-coral">
+          <span class="step-tag">Paso 02</span>
+          <div class="step-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
           <h3>Usted aprueba</h3>
           <p>Toque "Aprobar" o edite la respuesta. Se publica directo en su ficha de Google, sin entrar a ningún lado.</p>
+        </div>
+        <div class="process-card c-mustard">
+          <span class="step-tag">Paso 03</span>
+          <div class="step-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><path d="M14 14h3v3h-3zM19 14h2v2h-2zM14 19h2v2h-2zM19 19h2v2h-2z" fill="currentColor"/></svg>
+          </div>
+          <h3>Le damos un QR</h3>
+          <p>Lo pega en el mostrador, la mesa o el ticket. Lleva directo a la pantalla de reseña en Google, sin que el cliente tenga que buscar nada.</p>
         </div>
       </div>
       <p class="section-sub" style="margin-top:28px; margin-bottom:0; font-size:0.88rem;">¿Ya tiene el WhatsApp de sus clientes porque vende por ahí? Podemos automatizar también el envío del pedido de reseña, siempre con su consentimiento previo.</p>
